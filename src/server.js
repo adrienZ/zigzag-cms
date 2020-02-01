@@ -30,8 +30,6 @@ const app = express();
 // routing
 app.use('/', express.static('./admin/'));
 app.use('/api', express.static('./api/'));
-// run server
-app.listen(port, host, () => console.log('app listening on http://' + host + ':' + port))
 
 // on close
 process.on('SIGINT', function () {
@@ -40,4 +38,9 @@ process.on('SIGINT', function () {
   process.exit(1);
 });
 
-module.exports.handler = serverless(app);
+// run server
+if (!isProd) {
+  app.listen(port, host, () => console.log('app listening on http://' + host + ':' + port))
+} else {
+  module.exports.handler = serverless(app);
+}
