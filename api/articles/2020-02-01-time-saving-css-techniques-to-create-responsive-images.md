@@ -2,6 +2,7 @@
 layout: projects
 title: Time-saving CSS techniques to create responsive images
 date: 2020-02-01T19:44:48.245Z
+thumbnail: /api/medias/1_aVzJTznRRfP1lM7AXe9yLw.jpeg
 ---
 #### As a web developer, there is a high probability that you have encountered the two enemies of this article: images and deadlines. Sometimes, for some reasons, your images won’t fit the layout and you don’t want to wrap your head around this for hours.
 
@@ -97,7 +98,7 @@ By performance, I mean load times. A big hero image can ruin it and make your pa
 
 Did you know that in [modern browsers](https://caniuse.com/#feat=srcset)you can change an image source depending on your page width? That’s what `srcset` is made for!
 
-You can combine them with the HTML 5 `<picture>` tag, which gracefully degrades with an`<img>`.
+You can combine them with the HTML 5 `<picture>` tag, which gracefully degrades with an `<img>`.
 
 ```css
 <picture>
@@ -113,8 +114,8 @@ You can combine them with the HTML 5 `<picture>` tag, which gracefully degrades 
 
 ### To Recap
 
-1. Use`background-image` if your image is not part of the page’s content.
-2. Use`object-fit` if you don’t care about IE.
+1. Use `background-image` if your image is not part of the page’s content.
+2. Use `object-fit` if you don’t care about IE.
 3. The padded container technique, used by Netflix, works everywhere.
 4. In most cases, just add `height: auto;` in your CSS.
 5. If you need fast load times, use `srcset` to load smaller images on mobile.
