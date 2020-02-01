@@ -3,7 +3,7 @@ module.exports = {
     {
       "name": "projects",
       "label": "Projects",
-      "folder": "/static/posts/",
+      "folder": "/api/projects/",
       "create": true,
       "slug": "{{year}}-{{month}}-{{day}}-{{slug}}",
       "preview_path": "blog/{{year}}/{{month}}/{{filename}}.{{extension}}",
@@ -39,9 +39,9 @@ module.exports = {
       ]
     },
     {
-      "name": "yp",
-      "label": "yp",
-      "folder": "/static/posts/",
+      "name": "articles",
+      "label": "Articles",
+      "folder": "/api/articles",
       "create": true,
       "slug": "{{year}}-{{month}}-{{day}}-{{slug}}",
       preview: false,

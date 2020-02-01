@@ -1,20 +1,17 @@
 {
-  "name": "netlify-admin",
-  "version": "1.0.0",
-  "description": "",
-  "main": "src/index.js",
+  "name": "zigzag-cms",
+  "version": "0.1.0",
+  "description": "Personal cms build on Netlify CMS",
+  "main": "src/server.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=dev node src/index.js && npx netlify-cms-proxy-server",
-    "start": "cross-env NODE_ENV=prod node src/index.js"
+    "dev": "cross-env NODE_ENV=dev node src/server.js & npx netlify-cms-proxy-server & wait",
+    "start": "cross-env NODE_ENV=prod node src/server.js"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
     "netlify-cms": "^2.10.15",
-    "yaml": "^1.7.2"
-  },
-  "devDependencies": {
-    "cross-env": "^7.0.0"
+    "yaml": "^1.7.2",
+    "cross-env": "^7.0.0",
+    "ip": "^1.1.5"
   }
 }
