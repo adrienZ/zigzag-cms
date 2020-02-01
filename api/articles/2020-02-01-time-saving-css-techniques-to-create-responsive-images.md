@@ -96,7 +96,7 @@ If your layout isn’t too complicated, it works in most cases.
 
 By performance, I mean load times. A big hero image can ruin it and make your page feel slow, especially on mobile.
 
-Did you know that in [modern browsers](https://caniuse.com/#feat=srcset)you can change an image source depending on your page width? That’s what `srcset` is made for!
+Did you know that in [modern browsers](https://caniuse.com/#feat=srcset) you can change an image source depending on your page width? That’s what `srcset` is made for!
 
 You can combine them with the HTML 5 `<picture>` tag, which gracefully degrades with an `<img>`.
 
@@ -109,8 +109,6 @@ You can combine them with the HTML 5 `<picture>` tag, which gracefully degrades 
 ```
 
 <iframe id="cp_embed_pZLBpx" src="https://codepen.io/adri_zag/embed/preview/pZLBpx?height=300&amp;slug-hash=pZLBpx&amp;default-tabs=html,result&amp;host=https://codepen.io" title="Responsive images #5" scrolling="no" frameborder="0" height="300" allowtransparency="true" class="cp_embed_iframe" style="width: 100%; overflow: hidden;"></iframe>
-
-
 
 ### To Recap
 
