@@ -69,3 +69,52 @@ img {
 ```
 
 ![](/api/medias/1_rTrhAIVolZR2oQh2ou1jXg.png "Take a look at the class names !")
+
+A little demo:
+
+<iframe id="cp_embed_BPrejO" src="https://codepen.io/adri_zag/embed/preview/BPrejO?height=300&amp;slug-hash=BPrejO&amp;default-tabs=html,result&amp;host=https://codepen.io" title="Responsive images #3" scrolling="no" frameborder="0" height="300" allowtransparency="true" class="cp_embed_iframe" style="width: 100%; overflow: hidden;"></iframe>
+
+### The Simple way
+
+You may already know this one:
+
+```css
+img {
+  height: auto;
+  width: 100%;
+  /* even more control with max-width */
+  max-width: 720px;
+}
+```
+
+If your layout isn’t too complicated, it works in most cases.
+
+<iframe id="cp_embed_LBQvwy" src="https://codepen.io/adri_zag/embed/preview/LBQvwy?height=300&amp;slug-hash=LBQvwy&amp;default-tabs=html,result&amp;host=https://codepen.io" title="Responsive images #4" scrolling="no" frameborder="0" height="300" allowtransparency="true" class="cp_embed_iframe" style="width: 100%; overflow: hidden;"></iframe>
+
+### The Performance way (Advanced)
+
+By performance, I mean load times. A big hero image can ruin it and make your page feel slow, especially on mobile.
+
+Did you know that in [modern browsers](https://caniuse.com/#feat=srcset)you can change an image source depending on your page width? That’s what `srcset` is made for!
+
+You can combine them with the HTML 5 `<picture>` tag, which gracefully degrades with an`<img>`.
+
+```css
+<picture>
+  <source media="(max-width: 799px)" srcset="elva-480w.jpg">
+  <source media="(min-width: 800px)" srcset="elva-800w.jpg">
+  <img src="elva-800w.jpg">
+</picture>
+```
+
+<iframe id="cp_embed_pZLBpx" src="https://codepen.io/adri_zag/embed/preview/pZLBpx?height=300&amp;slug-hash=pZLBpx&amp;default-tabs=html,result&amp;host=https://codepen.io" title="Responsive images #5" scrolling="no" frameborder="0" height="300" allowtransparency="true" class="cp_embed_iframe" style="width: 100%; overflow: hidden;"></iframe>
+
+
+
+### To Recap
+
+1. Use`background-image` if your image is not part of the page’s content.
+2. Use`object-fit` if you don’t care about IE.
+3. The padded container technique, used by Netflix, works everywhere.
+4. In most cases, just add `height: auto;` in your CSS.
+5. If you need fast load times, use `srcset` to load smaller images on mobile.
