@@ -29,6 +29,7 @@ const host = 'localhost' || ip.address()
 const port = 3000
 const app = express();
 // routing
+app.use(bodyParser);
 app.use('/', express.static('./admin/'));
 app.use('/api', express.static('./api/'));
 
@@ -43,6 +44,5 @@ process.on('SIGINT', function () {
 if (!isProd) {
   app.listen(port, host, () => console.log('app listening on http://' + host + ':' + port))
 } else {
-  app.use(bodyParser);
   module.exports.handler = serverless(app);
 }
