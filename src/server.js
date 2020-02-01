@@ -23,8 +23,7 @@ fs.writeFileSync("./admin/config.yml", output);
 
 // server
 const host = 'localhost' || ip.address()
-// const port = process.env.PORT || 3000;
-const port = isProd ? 8080 : 3000;
+const port = process.env.PORT || 8080;
 const app = express();
 // routing
 app.use('/', express.static('./admin/'));
