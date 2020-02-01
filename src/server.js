@@ -12,7 +12,6 @@ const baseConfig = {
   locale: 'fr',
   media_folder: "/api/medias/",
   public_folder: "/api/medias/",
-  show_preview_links: true
 }
 const backend = require(isProd ? './prod' : './dev')
 const postTypes = require('./postTypes')
