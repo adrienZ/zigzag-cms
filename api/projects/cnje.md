@@ -1,6 +1,6 @@
 ---
-title: Confédération Nationale des Junior-Entreprisesssss
-date: 2020-01-31T23:54:57.592Z
+title: Confédération Nationale des Junior-Entreprisessssss
+date: 2020-01-31T23:54:00.000Z
 ---
 <h2>Confédération Nationale des Junior-Entreprises</h2>
 
