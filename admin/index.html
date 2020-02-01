@@ -8,12 +8,14 @@
 	<body>
 		<!-- Include the script that builds the page and powers Netlify CMS -->
 		<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+		<script>
+			localStorage.removeItem("netlifySiteURL")
+			localStorage.setItem("netlifySiteURL", 'https://zigzag-cms.netlify.com')
+		</script>
 		<script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
 		<script>
 			if (window.netlifyIdentity) {
 				window.netlifyIdentity.on("init", user => {
-					localStorage.removeItem("netlifySiteURL")
-					localStorage.setItem("netlifySiteURL", 'https://zigzag-cms.netlify.com/.netlify/identity')
 					console.log(user, netlifyIdentity.open())
 					if (!user) {
 						window.netlifyIdentity.on("login", () => {
