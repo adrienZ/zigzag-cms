@@ -19,6 +19,8 @@ date: 2020-01-31T23:55:13.089Z
 
 <h3>Technical</h3>
 
+dqfqf
+
 <ul>
   <li>We used component to reuse text types, buttons, containers, titles... all of this powered by <a href="https://github.com/brindille/brindille">Brindille</a></li>
   <li>The apparition of elements on the scroll is handled by <a href="https://animejs.com/">anime.js</a> timelines</li>
