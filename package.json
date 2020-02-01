@@ -8,10 +8,11 @@
     "start": "cross-env NODE_ENV=prod node src/server.js"
   },
   "dependencies": {
-    "express": "^4.17.1",
-    "netlify-cms": "^2.10.15",
-    "yaml": "^1.7.2",
     "cross-env": "^7.0.0",
-    "ip": "^1.1.5"
+    "express": "^4.17.1",
+    "ip": "^1.1.5",
+    "netlify-cms": "^2.10.15",
+    "serverless-http": "^2.3.1",
+    "yaml": "^1.7.2"
   }
 }

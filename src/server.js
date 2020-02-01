@@ -3,6 +3,7 @@ const YAML = require('yaml');
 const fs = require('fs')
 const express = require('express');
 const ip = require('ip');
+const serverless = require('serverless-http');
 
 // env
 const isProd = process.env.NODE_ENV === 'prod'
@@ -38,3 +39,5 @@ process.on('SIGINT', function () {
   // some other closing procedures go here
   process.exit(1);
 });
+
+module.exports.handler = serverless(app);
