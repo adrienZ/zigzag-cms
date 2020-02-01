@@ -3,8 +3,6 @@ const YAML = require('yaml');
 const fs = require('fs')
 const express = require('express');
 const ip = require('ip');
-const serverless = require('serverless-http');
-const bodyParser = require('body-parser');
 
 // env
 const isProd = process.env.NODE_ENV === 'prod'
@@ -29,9 +27,10 @@ const host = 'localhost' || ip.address()
 const port = 3000
 const app = express();
 // routing
-app.use(bodyParser);
 app.use('/', express.static('./admin/'));
 app.use('/api', express.static('./api/'));
+// run server
+app.listen(port, host, () => console.log('app listening on http://' + host + ':' + port))
 
 // on close
 process.on('SIGINT', function () {
@@ -39,10 +38,3 @@ process.on('SIGINT', function () {
   // some other closing procedures go here
   process.exit(1);
 });
-
-// run server
-if (!isProd) {
-  app.listen(port, host, () => console.log('app listening on http://' + host + ':' + port))
-} else {
-  module.exports.handler = serverless(app);
-}
