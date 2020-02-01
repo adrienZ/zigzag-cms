@@ -30,7 +30,7 @@ const app = express();
 app.use('/', express.static('./admin/'));
 app.use('/api', express.static('./api/'));
 // run server
-app.listen(port, host, () => console.log('app listening on http://' + host + ':' + port))
+app.listen(port, () => console.log('app listening on http://' + host + ':' + port))
 
 // on close
 process.on('SIGINT', function () {
