@@ -4,6 +4,7 @@ const fs = require('fs')
 const express = require('express');
 const ip = require('ip');
 const serverless = require('serverless-http');
+const bodyParser = require('body-parser');
 
 // env
 const isProd = process.env.NODE_ENV === 'prod'
@@ -42,5 +43,6 @@ process.on('SIGINT', function () {
 if (!isProd) {
   app.listen(port, host, () => console.log('app listening on http://' + host + ':' + port))
 } else {
+  app.use(bodyParser);
   module.exports.handler = serverless(app);
 }
