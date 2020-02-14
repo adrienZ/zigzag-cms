@@ -10,6 +10,7 @@
   "dependencies": {
     "cross-env": "^7.0.0",
     "express": "^4.17.1",
+    "glob": "^7.1.6",
     "ip": "^1.1.5",
     "netlify-cms": "^2.10.15",
     "yaml": "^1.7.2"
