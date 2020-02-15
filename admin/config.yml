@@ -1,32 +1,60 @@
+locale: fr
+media_folder: ./api/medias/
+public_folder: ./api/medias/
 backend:
-  # name: github
-  # repo: adrienZ/adrienzaganelli.com
-  # branch: "cms"
-  name: proxy
-  proxy_url: http://localhost:8081/api/v1
-  branch: "master" # optional, defaults to master
-media_folder: "/uploads/" # The src attribute for uploaded media will begin with /images/uploads
-public_folder: "/uploads/" # The src attribute for uploaded media will begin with /images/uploads
+  name: github
+  repo: adrienZ/zigzag-cms
+  branch: master
+  site_domain: cms.netlify.com
+publish_mode: editorial_workflow
 collections:
-  - name: "projects" # Used in routes, e.g., /admin/collections/blog
-    label: "Projects" # Used in the UI
-    folder: "/posts/" # The path to the folder where the documents are stored
-    create: true # Allow users to create new documents in this collection
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
-    fields: # The fields for each document, usually in front matter
-      - {label: "Layout", name: "layout", widget: "hidden", default: "projects"}
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Featured Image", name: "thumbnail", widget: "image", required: false}
-      - {label: "Body", name: "body", widget: "markdown"}
-  - name: "yp" # Used in routes, e.g., /admin/collections/blog
-    label: "yp" # Used in the UI
-    folder: "/posts/" # The path to the folder where the documents are stored
-    create: true # Allow users to create new documents in this collection
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
-    fields: # The fields for each document, usually in front matter
-      - {label: "Layout", name: "layout", widget: "hidden", default: "projects"}
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Featured Image", name: "thumbnail", widget: "image", required: false}
-      - {label: "Body", name: "body", widget: "markdown"}
+  - name: projects
+    label: Projects
+    folder: /api/projects/
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    preview_path: blog/{{year}}/{{month}}/{{filename}}.{{extension}}
+    preview_path_date_field: updated_on
+    fields:
+      - label: Layout
+        name: layout
+        widget: hidden
+        default: projects
+      - label: Title
+        name: title
+        widget: string
+      - label: Publish Date
+        name: date
+        widget: datetime
+      - label: Featured Image
+        name: thumbnail
+        widget: image
+        required: false
+      - label: Body
+        name: body
+        widget: markdown
+  - name: articles
+    label: Articles
+    folder: /api/articles
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    preview: false
+    summary: "Version: {{version}} - {{title}}"
+    fields:
+      - label: Layout
+        name: layout
+        widget: hidden
+        default: projects
+      - label: Title
+        name: title
+        widget: string
+      - label: Publish Date
+        name: date
+        widget: datetime
+      - label: Featured Image
+        name: thumbnail
+        widget: image
+        required: false
+      - label: Body
+        name: body
+        widget: markdown
