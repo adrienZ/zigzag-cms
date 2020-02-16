@@ -70,8 +70,8 @@ const getFileAsPost = filepath => {
   // format metadata as object
   const metaData = infos.reduce((acc, str) => {
     const line = str.split(':')
-    const key = line[0]
-    const value = str.replace(key + ':', '')
+    const key = line[0].trim()
+    const value = str.replace(key + ':', '').trim()
     acc[key] = value
     return acc
   }, {})
