@@ -141,7 +141,7 @@ app.use('/api', (req, res) => {
     }
     // serve files
     else if (files.includes(url)) {
-      sendFile(url)
+      sendFile(url, res)
     }
     // 404
     else {
