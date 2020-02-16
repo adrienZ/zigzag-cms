@@ -76,8 +76,10 @@ const getFileAsPost = filepath => {
     return acc
   }, {})
 
+  const slug = path.parse(filepath).name
 
-  return { body, ...metaData }
+
+  return { slug, body, ...metaData }
 }
 
 
