@@ -1,6 +1,7 @@
 ---
 title: Confédération Nationale des Junior-Entreprisessssss
 date: 2020-01-31T23:54:00.000Z
+thumbnail: /api/medias/hou-china-3.jpg
 ---
 <h2>Confédération Nationale des Junior-Entreprises</h2>
 

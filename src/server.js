@@ -27,83 +27,123 @@ const host = 'localhost' || ip.address()
 const port = process.env.PORT || 8080;
 const app = express();
 
+
+const sendFile = (url, res) => {
+  const mime = {
+    html: 'text/html',
+    txt: 'text/plain',
+    css: 'text/css',
+    gif: 'image/gif',
+    jpg: 'image/jpeg',
+    jpeg: 'image/jpeg',
+    png: 'image/png',
+    svg: 'image/svg+xml',
+    js: 'application/javascript'
+  };
+  const type = mime[path.extname(url).slice(1)] || 'text/plain';
+  const file = fs.readFileSync('./api/' + url);
+  res.writeHead(200, { 'Content-Type': type });
+  res.end(file, 'binary')
+
+  return file
+}
+
+
+const getFileAsPost = filepath => {
+  const fileContent = fs.readFileSync(filepath, 'utf8')
+
+  // detect metadata from source .md
+  const pattern = /^(---)((.|\n)*?)(---\n)/gim
+  const matches = fileContent.match(pattern)
+
+  // extract metadata from markdown
+  const body = fileContent.replace(matches[0], '')
+
+  // parse metadata from str to array
+  const infos =
+    matches[0]
+      .replace('\n---', '')
+      .replace('---\n', '')
+      .split('\n')
+  infos.pop()
+
+  // format metadata as object
+  const metaData = infos.reduce((acc, str) => {
+    const line = str.split(':')
+    const key = line[0].trim()
+    const value = str.replace(key + ':', '').trim()
+    acc[key] = value
+    return acc
+  }, {})
+
+  const slug = path.parse(filepath).name
+
+
+  return { slug, body, ...metaData }
+}
+
+
+const listEntityItems = (allFiles, url) => {
+  const posts = allFiles
+    .filter(item => item.includes(url) && !item.endsWith('/'))
+    // return .md as url, else return filename
+    .map(item => path.basename(item))
+    .map(item => getFileAsPost('./api/' + url + '/' + item))
+
+  return posts
+}
+
+
+
+
+
 // routing
 app.use('/', express.static('./admin/'));
 app.use('/api', (req, res) => {
 
-  const FILES = glob('**/*', {
+  glob('**/*', {
     cwd: './api/',
     mark: true,
   }, (err, files) => {
     const url = req.url.substring(1)
 
     const entities = files
-      .filter( url => url.split('/').length === 2 && url.endsWith('/'))
+      .filter(url => url.split('/').length === 2 && url.endsWith('/'))
+
+
+    // list items of entity
+    for (let entityName of entities) {
+      if (url === entityName + 'list') {
+        const posts = listEntityItems(files, url.replace('/list', ''))
+        res.json({ items: posts })
+        return res.end()
+      }
+    }
+
 
     // list entites if root
     if (url === '') {
       res.json({ entities })
     }
-
     // list items if entitiy
     else if (entities.includes(url)) {
       const items = files
-        .filter( item => item.includes(url) && !item.endsWith('/'))
+        .filter(item => item.includes(url) && !item.endsWith('/'))
         // return .md as url, else return filename
-        .map(item =>  path.parse(item).ext === '.md' ? path.parse(item).name : path.basename(item))
+        .map(item => path.parse(item).ext === '.md' ? path.parse(item).name : path.basename(item))
 
-      res.json({items})
+      res.json({ items })
     }
-
     // if post
     else if (files.includes(url + '.md')) {
-      const fileContent = fs.readFileSync('./api/' + url + '.md', 'utf8')
-
-      // detect metadata from source .md
-      const pattern = /^(---)((.|\n)*?)(---\n)/gim
-      const matches = fileContent.match(pattern)
-
-      // main content
-      const body = fileContent.replace(matches[0], '')
-
-      // parse metadata
-      const infos =
-        matches[0]
-          .replace('\n---', '')
-          .replace('---\n', '')
-          .split('\n')
-        infos.pop()
-
-      const metaData = infos.reduce((acc, str) => {
-        const line = str.split(':')
-        const key = line[0]
-        const value = str.replace(key + ':', '')
-        acc[key] = value
-        return acc
-      }, {})
-
-      res.json({ body, ...metaData})
+      const post = getFileAsPost('./api/' + url + '.md')
+      res.json({ ...post })
     }
-
-    // serve images
+    // serve files
     else if (files.includes(url)) {
-      var mime = {
-        html: 'text/html',
-        txt: 'text/plain',
-        css: 'text/css',
-        gif: 'image/gif',
-        jpg: 'image/jpeg',
-        jpeg: 'image/jpeg',
-        png: 'image/png',
-        svg: 'image/svg+xml',
-        js: 'application/javascript'
-    };
-    var type = mime[path.extname(url).slice(1)] || 'text/plain';
-    var img = fs.readFileSync('./api/' + url);
-    res.writeHead(200, {'Content-Type': type });
-    res.end(img, 'binary')
+      sendFile(url, res)
     }
-
+    // 404
     else {
       res.status(404).send('404 Not found');
     }
