@@ -2,10 +2,11 @@
   "name": "zigzag-cms",
   "version": "0.1.0",
   "description": "Personal cms build on Netlify CMS",
-  "main": "src/server.js",
+  "main": "index.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=dev node src/server.js & npx netlify-cms-proxy-server & wait",
-    "start": "cross-env NODE_ENV=prod node src/server.js"
+    "dev": "cross-env NODE_ENV=dev node index.js & npx netlify-cms-proxy-server & wait",
+    "start": "cross-env NODE_ENV=prod node index.js",
+    "api": "cross-env NODE_ENV=prod node api.js"
   },
   "dependencies": {
     "cross-env": "^7.0.0",
