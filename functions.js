@@ -1,4 +1,4 @@
-export const parseMdFile = fileContent => {
+export const parseMdFile = (fileContent, slug) => {
   // detect metadata from source .md
   const pattern = /^(---)((.|\n)*?)(---\n)/gim
   const matches = fileContent.match(pattern)
@@ -22,9 +22,6 @@ export const parseMdFile = fileContent => {
     acc[key] = value
     return acc
   }, {})
-
-  // const slug = path.parse(filepath).name
-  let slug = 'slug'
 
   return { slug, body, ...metaData }
 }

@@ -35,7 +35,8 @@ const listEntityItems = (allFiles, url) => {
 
 const getMdAsJson = filepath => {
   const fileContent = fs.readFileSync(filepath, 'utf8')
-  return parseMdFile(fileContent)
+  const slug = path.parse(filepath).name
+  return parseMdFile(fileContent, slug)
 }
 
 module.exports = {
