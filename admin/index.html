@@ -9,11 +9,6 @@
 
 	<body>
 		<div data-netlify-identity-menu></div>
-
-		<!-- Add a simpler button:
-				    Simple button that will open the modal.
-				  -->
-		<div data-netlify-identity-button>Login with Netlify Identity</div>
 		<!-- Include the script that builds the page and powers Netlify CMS -->
 		<script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
 		<script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
@@ -22,8 +17,7 @@
 
 			// Bind to events
 netlifyIdentity.on('init', user => {
-console.log('init', netlifyIdentity.store)
-netlifyIdentity.store.setSiteURL('https://zigzag-cms.netlify')
+netlifyIdentity.store.setSiteURL('https://zigzag-cms.netlify.com')
 netlifyIdentity.on('login', user => console.log('login', user));
 netlifyIdentity.on('logout', () => console.log('Logged out'));
 netlifyIdentity.on('error', err => console.error('Error', err));
