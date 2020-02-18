@@ -14,14 +14,15 @@
 		<script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 		<script>
 
+			console.log(netlifyIdentity.store)
+// netlifyIdentity.store.setSiteURL('https://zigzag-cms.netlify.com')
 
-			// Bind to events
+// Bind to events
 netlifyIdentity.on('init', user => {
-netlifyIdentity.store.setSiteURL('https://zigzag-cms.netlify.com')
-netlifyIdentity.on('login', user => console.log('login', user));
+netlifyIdentity.on('login', user => {});
 netlifyIdentity.on('logout', () => console.log('Logged out'));
 netlifyIdentity.on('error', err => console.error('Error', err));
-netlifyIdentity.on('open', () => console.log('Widget opened'));
+netlifyIdentity.on('open', () => {});
 netlifyIdentity.on('close', () => console.log('Widget closed'));
 });
 		</script>

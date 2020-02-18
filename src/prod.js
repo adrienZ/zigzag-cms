@@ -1,6 +1,6 @@
 module.exports = {
   'backend': {
-    name: 'github',
+    name: 'git-gateway',
     repo: 'adrienZ/zigzag-cms',
     branch: 'master',
     site_domain: 'cms.netlify.com'
