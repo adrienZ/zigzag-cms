@@ -1,4 +1,4 @@
-const parseMdFile = fileContent => {
+export const parseMdFile = fileContent => {
   // detect metadata from source .md
   const pattern = /^(---)((.|\n)*?)(---\n)/gim
   const matches = fileContent.match(pattern)
