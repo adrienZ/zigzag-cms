@@ -7,7 +7,8 @@
     "dev": "cross-env NODE_ENV=dev node index.js & npx netlify-cms-proxy-server & wait",
     "start": "cross-env USE_SERVER=true NODE_ENV=prod node index.js",
     "netlify": "cross-env NODE_ENV=prod node index.js",
-    "api": "cross-env NODE_ENV=prod node api.js"
+    "api": "cross-env NODE_ENV=prod node api.js",
+    "ssl": "sudo cross-env openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ./src/env/server.key -x509 -out ./src/env/server.cert"
   },
   "dependencies": {
     "cross-env": "^7.0.0",

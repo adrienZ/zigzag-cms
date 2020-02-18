@@ -1,26 +1,36 @@
 <!doctype html>
 <html>
 
-<head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Zigzag CMS</title>
-</head>
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<title>Zigzag CMS</title>
+	</head>
 
-<body>
-	<!-- Include the script that builds the page and powers Netlify CMS -->
-	<script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
-	<script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+	<body>
+		<div data-netlify-identity-menu></div>
 
-	<script>
-		// Bind to events
-		netlifyIdentity.on('init', user => console.log('init', user));
-		netlifyIdentity.on('login', user => console.log('login', user));
-		netlifyIdentity.on('logout', () => console.log('Logged out'));
-		netlifyIdentity.on('error', err => console.error('Error', err));
-		netlifyIdentity.on('open', () => console.log('Widget opened'));
-		netlifyIdentity.on('close', () => console.log('Widget closed'));
-	</script>
-</body>
+		<!-- Add a simpler button:
+				    Simple button that will open the modal.
+				  -->
+		<div data-netlify-identity-button>Login with Netlify Identity</div>
+		<!-- Include the script that builds the page and powers Netlify CMS -->
+		<script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+		<script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+		<script>
+
+
+			// Bind to events
+netlifyIdentity.on('init', user => {
+console.log('init', netlifyIdentity.store)
+netlifyIdentity.store.setSiteURL('https://zigzag-cms.netlify')
+netlifyIdentity.on('login', user => console.log('login', user));
+netlifyIdentity.on('logout', () => console.log('Logged out'));
+netlifyIdentity.on('error', err => console.error('Error', err));
+netlifyIdentity.on('open', () => console.log('Widget opened'));
+netlifyIdentity.on('close', () => console.log('Widget closed'));
+});
+		</script>
+	</body>
 
 </html>
