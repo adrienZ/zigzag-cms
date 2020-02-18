@@ -8,7 +8,6 @@ const app = express();
 function startServer(middleware) {
   app.use('/', middleware)
   app.listen(port, () => console.log('app listening on http://' + host + ':' + port))
-
 }
 
 
