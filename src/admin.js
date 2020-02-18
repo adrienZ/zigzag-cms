@@ -1,11 +1,7 @@
 const YAML = require('yaml');
 const fs = require('fs')
 
-
-
-
-
-function makeConfig(isProd) {
+function makeConfig(env) {
   // config
   const baseConfig = {
     locale: 'fr',
@@ -13,7 +9,7 @@ function makeConfig(isProd) {
     public_folder: "./api/medias/",
   }
 
-  const backend = require(isProd ? './prod' : './dev')
+  const backend = require('./env/' + env)
   const postTypes = require('./postTypes')
 
   // write yaml
