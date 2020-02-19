@@ -69,6 +69,7 @@ module.exports = {
           multiple: true,
           valueField: "name",
           displayFields: "name",
+          required: false,
         },
         {
           label: "Canonical Url",
