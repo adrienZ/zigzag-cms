@@ -1,25 +1,26 @@
 module.exports = {
   "collections": [
     {
-      "name": "projects",
-      "label": "Projects",
-      "folder": "/api/projects/",
-      "create": true,
-      "slug": "{{year}}-{{month}}-{{day}}-{{slug}}",
-      "preview_path": "blog/{{year}}/{{month}}/{{filename}}.{{extension}}",
+      name: "projects",
+      label: "Projects",
+      folder: "/api/projects/",
+      create: true,
+      format: "json",
+      slug: "{{year}}-{{month}}-{{day}}-{{slug}}",
+      preview_path: "blog/{{year}}/{{month}}/{{filename}}.{{extension}}",
       preview_path_date_field: "updated_on",
       format: 'json',
       "fields": [
         {
-          "label": "Layout",
-          "name": "layout",
-          "widget": "hidden",
-          "default": "projects"
+          label: "Layout",
+          name: "layout",
+          widget: "hidden",
+          default: "projects"
         },
         {
-          "label": "Title",
-          "name": "title",
-          "widget": "string"
+          label: "Title",
+          name: "title",
+          widget: "string"
         },
         {
           "label": "Publish Date",
@@ -47,6 +48,7 @@ module.exports = {
       format: 'json',
       "slug": "{{year}}-{{month}}-{{day}}-{{slug}}",
       preview: false,
+      format: "json",
       summary: "Version: {{version}} - {{title}}",
       "fields": [
         {
