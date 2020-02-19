@@ -5,8 +5,7 @@ function makeConfig(env) {
   // config
   const baseConfig = {
     locale: 'fr',
-    media_folder: "./api/medias/",
-    public_folder: "./api/medias/",
+    media_folder: "api/medias/",
   }
 
   const backend = require('./env/' + env)
