@@ -1,0 +1,6 @@
+{
+  "layout": "projects",
+  "title": "Fidget cube",
+  "date": "2020-02-19T00:35:50.244Z",
+  "body": "<h2>Fidget cube</h2>\n\n<img src=\"src/media/img/post-img/fidget/1.png\" />\n\n<h3>Context</h3>\n\n  <p>School project, we choose to make a pomotional landing page for the <a href=\"https://www.antsylabs.com/products/fidget-cube\">Fidget cube<a/>. We wanted to stand out by using 3D techonologies such as WebGL.</p>\n\n  <img src=\"src/media/img/post-img/fidget/2.jpg\" />\n\n\n<h3>Technical</h3>\n\n  <p>That was the first time i tried WebGL, and it wasn't a piece of cake !</p>\n\n  <ul>\n    <li>Build with <a href=\"https://threejs.org/\">Three.js</a>.</li>\n    <li>Some <a href=\"http://www.threejsgames.com/extensions/\">Threex</a> plugins.</li>\n  </ul>\n\n  <img src=\"src/media/img/post-img/fidget/3.jpg\" />\n  <video style=\"max-width: 400px\" autoplay loop muted src=\"src/media/img/post-img/fidget/5.mp4\"></video>\n  <img src=\"src/media/img/post-img/fidget/4.jpg\" />\n\n"
+}
