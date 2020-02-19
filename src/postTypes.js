@@ -109,7 +109,8 @@ module.exports = {
         {
           label: "Name",
           name: "name",
-          widget: "string"
+          widget: "string",
+          pattern: ["[a-z0-9]+", "Tag must be in lowercase"]
         },
       ]
 
