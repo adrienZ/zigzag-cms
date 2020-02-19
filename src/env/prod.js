@@ -1,5 +1,5 @@
 module.exports = {
-  'backend': {
+  backend: {
     name: 'git-gateway',
     repo: 'adrienZ/zigzag-cms',
     branch: 'master',

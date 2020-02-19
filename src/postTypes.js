@@ -1,16 +1,16 @@
 module.exports = {
-  "collections": [
+  collections: [
     {
       name: "projects",
       label: "Projects",
       folder: "/api/projects/",
       create: true,
       format: "json",
-      slug: "{{year}}-{{month}}-{{day}}-{{slug}}",
-      preview_path: "blog/{{year}}/{{month}}/{{filename}}.{{extension}}",
-      preview_path_date_field: "updated_on",
+      slug: "{{slug}}",
+      // preview_path: "blog/{{year}}/{{month}}/{{filename}}.{{extension}}",
+      // preview_path_date_field: "updated_on",
       format: 'json',
-      "fields": [
+      fields: [
         {
           label: "Layout",
           name: "layout",
@@ -23,62 +23,95 @@ module.exports = {
           widget: "string"
         },
         {
-          "label": "Publish Date",
-          "name": "date",
-          "widget": "datetime"
+          label: "Publish Date",
+          name: "date",
+          widget: "datetime"
         },
         {
-          "label": "Featured Image",
-          "name": "thumbnail",
-          "widget": "image",
-          "required": false
+          label: "Featured Image",
+          name: "thumbnail",
+          widget: "image",
+          required: false
         },
         {
-          "label": "Body",
-          "name": "body",
-          "widget": "markdown"
+          label: "Body",
+          name: "body",
+          widget: "markdown"
         }
       ]
     },
     {
-      "name": "articles",
-      "label": "Articles",
-      "folder": "/api/articles",
-      "create": true,
+      name: "articles",
+      label: "Articles",
+      folder: "/api/articles",
+      create: true,
       format: 'json',
-      "slug": "{{year}}-{{month}}-{{day}}-{{slug}}",
+      slug: "{{slug}}",
       preview: false,
-      format: "json",
-      summary: "Version: {{version}} - {{title}}",
-      "fields": [
+      fields: [
         {
-          "label": "Layout",
-          "name": "layout",
-          "widget": "hidden",
-          "default": "projects"
+          label: "Layout",
+          name: "layout",
+          widget: "hidden",
+          default: "projects"
         },
         {
-          "label": "Title",
-          "name": "title",
-          "widget": "string"
+          label: "Title",
+          name: "title",
+          widget: "string"
         },
         {
-          "label": "Publish Date",
-          "name": "date",
-          "widget": "datetime"
+          label: "Tags",
+          name: "tags",
+          widget: "relation",
+          collection: "tags",
+          searchFields: ["name"],
+          multiple: true,
+          valueField: "name",
+          displayFields: "name",
         },
         {
-          "label": "Featured Image",
-          "name": "thumbnail",
-          "widget": "image",
-          "required": false
+          label: "Canonical Url",
+          name: "canonical_url",
+          widget: "string",
+          required: false,
         },
         {
-          "label": "Body",
-          "name": "body",
-          "widget": "markdown"
+          label: "Publish Date",
+          name: "date",
+          widget: "datetime"
+        },
+        {
+          label: "Featured Image",
+          name: "thumbnail",
+          widget: "image",
+          required: false
+        },
+        {
+          label: "Body",
+          name: "body",
+          widget: "markdown"
         }
       ]
+    },
+    {
+      name: "tags",
+      label: "Tags",
+      folder: "/api/tags",
+      create: true,
+      format: 'json',
+      slug: "{{slug}}",
+      editor: {
+        preview: false,
+      },
+      fields: [
+        {
+          label: "Name",
+          name: "name",
+          widget: "string"
+        },
+      ]
+
     }
   ]
 };
