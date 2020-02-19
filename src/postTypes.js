@@ -8,6 +8,7 @@ module.exports = {
       "slug": "{{year}}-{{month}}-{{day}}-{{slug}}",
       "preview_path": "blog/{{year}}/{{month}}/{{filename}}.{{extension}}",
       preview_path_date_field: "updated_on",
+      format: 'json',
       "fields": [
         {
           "label": "Layout",
@@ -43,6 +44,7 @@ module.exports = {
       "label": "Articles",
       "folder": "/api/articles",
       "create": true,
+      format: 'json',
       "slug": "{{year}}-{{month}}-{{day}}-{{slug}}",
       preview: false,
       summary: "Version: {{version}} - {{title}}",
