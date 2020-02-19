@@ -2,7 +2,7 @@ module.exports = {
   'backend': {
     name: 'github',
     repo: 'adrienZ/zigzag-cms',
-    branch: 'content',
+    branch: 'master',
   },
   publish_mode: 'editorial_workflow',
 }
