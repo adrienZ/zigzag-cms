@@ -53,7 +53,7 @@ module.exports = {
           label: "Layout",
           name: "layout",
           widget: "hidden",
-          default: "projects"
+          default: "articles"
         },
         {
           label: "Title",
@@ -61,32 +61,46 @@ module.exports = {
           widget: "string"
         },
         {
-          label: "Tags",
-          name: "tags",
-          widget: "relation",
-          collection: "tags",
-          searchFields: ["name"],
-          multiple: true,
-          valueField: "name",
-          displayFields: "name",
-          required: false,
+          label: "Metadata",
+          name: 'metadata',
+          widget: "object",
+          fields: [
+            {
+              label: "Publish Date",
+              name: "date",
+              widget: "datetime"
+            },
+            {
+              label: "Featured Image",
+              name: "thumbnail",
+              widget: "image",
+              required: false
+            },
+          ]
         },
         {
-          label: "Canonical Url",
-          name: "canonical_url",
-          widget: "string",
-          required: false,
-        },
-        {
-          label: "Publish Date",
-          name: "date",
-          widget: "datetime"
-        },
-        {
-          label: "Featured Image",
-          name: "thumbnail",
-          widget: "image",
-          required: false
+          label: "SEO",
+          name: 'seo',
+          widget: "object",
+          fields: [
+            {
+              label: "Tags",
+              name: "tags",
+              widget: "relation",
+              collection: "tags",
+              searchFields: ["name"],
+              multiple: true,
+              valueField: "name",
+              displayFields: "name",
+              required: false,
+            },
+            {
+              label: "Canonical Url",
+              name: "canonical_url",
+              widget: "string",
+              required: false,
+            },
+          ]
         },
         {
           label: "Body",
@@ -114,6 +128,55 @@ module.exports = {
         },
       ]
 
-    }
+    },
+    {
+      name: "options",
+      label: "Options",
+      preview: false,
+      files: [
+        {
+          label: 'Réseaux Sociaux',
+          name: 'networks',
+          format: "json",
+          slug: "{{slug}}",
+          file: "api/options/networks.json",
+          fields: [
+            {
+              label: "Items",
+              name: "items",
+              widget: "list",
+              collapsed: false,
+              allow_add: true,
+              fields: [
+                {
+                  label: "Afficher",
+                  name: "show",
+                  widget: "boolean",
+                  default: false
+                },
+                {
+                  label: "Nom",
+                  name: "name",
+                  widget: "string",
+                },
+                {
+                  label: "Icon",
+                  hint: "inline svg",
+                  name: "icon",
+                  widget: "code",
+                  output_code_only: true,
+                },
+                {
+                  label: "Url",
+                  name: "url",
+                  widget: "string",
+                },
+              ]
+            }
+          ]
+        }
+      ]
+
+    },
   ]
 };
