@@ -61,6 +61,12 @@ module.exports = {
           widget: "string"
         },
         {
+          label: "Featured Image",
+          name: "thumbnail",
+          widget: "image",
+          required: false
+        },
+        {
           label: "Metadata",
           name: 'metadata',
           widget: "object",
@@ -69,12 +75,6 @@ module.exports = {
               label: "Publish Date",
               name: "date",
               widget: "datetime"
-            },
-            {
-              label: "Featured Image",
-              name: "thumbnail",
-              widget: "image",
-              required: false
             },
           ]
         },
