@@ -22,6 +22,7 @@ module.exports = {
           name: "published",
           widget: "boolean",
           default: false,
+          required: false,
         },
         {
           label: "Title",
@@ -66,6 +67,7 @@ module.exports = {
           name: "published",
           widget: "boolean",
           default: false,
+          required: false,
         },
         {
           label: "Title",
@@ -170,7 +172,8 @@ module.exports = {
                   label: "Afficher",
                   name: "show",
                   widget: "boolean",
-                  default: false
+                  default: false,
+                  required: false,
                 },
                 {
                   label: "Nom",
