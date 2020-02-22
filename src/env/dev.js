@@ -4,5 +4,5 @@ module.exports = {
     repo: 'adrienZ/zigzag-cms',
     branch: 'master',
   },
-  publish_mode: 'editorial_workflow',
+  // publish_mode: 'editorial_workflow', // i work solo
 }

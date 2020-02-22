@@ -18,6 +18,13 @@ module.exports = {
           default: "projects"
         },
         {
+          label: "Published",
+          name: "published",
+          widget: "boolean",
+          default: false,
+          required: false,
+        },
+        {
           label: "Title",
           name: "title",
           widget: "string"
@@ -54,6 +61,13 @@ module.exports = {
           name: "layout",
           widget: "hidden",
           default: "articles"
+        },
+        {
+          label: "Published",
+          name: "published",
+          widget: "boolean",
+          default: false,
+          required: false,
         },
         {
           label: "Title",
@@ -121,6 +135,12 @@ module.exports = {
       },
       fields: [
         {
+          label: "Layout",
+          name: "layout",
+          widget: "hidden",
+          default: "tags"
+        },
+        {
           label: "Name",
           name: "name",
           widget: "string",
@@ -152,7 +172,8 @@ module.exports = {
                   label: "Afficher",
                   name: "show",
                   widget: "boolean",
-                  default: false
+                  default: false,
+                  required: false,
                 },
                 {
                   label: "Nom",
