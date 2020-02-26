@@ -4,5 +4,11 @@
   "metadata": {
     "date": "2020-02-22T21:45:03.476Z"
   },
-  "body": "yoyoyo"
+  "seo": {
+    "tags": [
+      "vue.js",
+      "javascript"
+    ]
+  },
+  "body": "https://012.vuejs.org/guide/forms.html"
 }
