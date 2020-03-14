@@ -9,5 +9,18 @@
     "Url": "https://junior-entreprises.com/",
     "Time period": "July-August 2017",
     "Summary": "Freelance project for the french Junior-Enterprise confederation's website."
+  },
+  "published": true,
+  "meta": {
+    "summary": "Freelance project for the french Junior-Enterprise confederation's website.",
+    "time-period": "July-August 2017",
+    "url": "https://junior-entreprises.com/",
+    "role": "Front end Developer",
+    "team": [
+      {
+        "role": "Back-end developer",
+        "collaborator": "Félix LaFeuille"
+      }
+    ]
   }
 }
