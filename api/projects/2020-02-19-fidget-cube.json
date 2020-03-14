@@ -10,20 +10,20 @@
     "summary": "Pulsar one is a text-based game where the story evolves depending on your choices. You are the chosen one who has to save the world.",
     "team": [
       {
+        "role": "Javascript developer",
+        "collaborator": "Corentin Marzin"
+      },
+      {
         "collaborator": "Suong Kévin Tan",
-        "role": "Leader/UI designer"
+        "role": "Leader & UX designer"
       },
       {
-        "role": "Data manager",
-        "collaborator": "Jennyfer Millet"
+        "collaborator": "Michael Zaccardi",
+        "role": "UI designer"
       },
       {
-        "role": "Sound & Game designer",
-        "collaborator": "Aude Ficheux"
-      },
-      {
-        "collaborator": "Aude Ficheux",
-        "role": "Javascript developer"
+        "collaborator": "Emmanuel Naim",
+        "role": "Writter"
       }
     ]
   },
