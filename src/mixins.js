@@ -54,7 +54,7 @@ const text = (name, options = {}) => {
 const markdown = (name, options = {}) => {
   return _withOptions({
     ..._slugName(name),
-    widget: "string",
+    widget: "markdown",
   }, options)
 }
 module.exports = {
