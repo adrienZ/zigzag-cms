@@ -4,7 +4,7 @@
   "description": "Personal cms build on Netlify CMS",
   "main": "index.js",
   "scripts": {
-    "local": "cross-env NODE_ENV=local USE_SERVER=true node index.js & npx netlify-cms-proxy-server & wait",
+    "dev": "cross-env NODE_ENV=local USE_SERVER=true node index.js & npx netlify-cms-proxy-server & wait",
     "start": "cross-env USE_SERVER=true NODE_ENV=dev node index.js",
     "netlify": "cross-env NODE_ENV=prod node index.js",
     "api": "cross-env NODE_ENV=prod node api.js"
@@ -15,6 +15,7 @@
     "glob": "^7.1.6",
     "ip": "^1.1.5",
     "netlify-cms": "^2.10.15",
+    "slugify": "^1.4.0",
     "yaml": "^1.7.2"
   }
 }

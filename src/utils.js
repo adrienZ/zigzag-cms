@@ -43,4 +43,5 @@ module.exports = {
   sendFile,
   getMdAsJson,
   listEntityItems,
+  regTypes,
 };
