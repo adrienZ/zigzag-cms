@@ -41,7 +41,7 @@ module.exports = {
             searchFields: ["name"],
             multiple: false,
             valueField: "name",
-            displayFields: "name",
+            displayFields: ["name"],
             required: true,
           },
           string('Role'),

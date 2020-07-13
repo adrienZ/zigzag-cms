@@ -39,7 +39,7 @@ module.exports = {
         searchFields: ["name"],
         multiple: true,
         valueField: "name",
-        displayFields: "name",
+        displayFields: ["name"],
         required: false,
       },
       {
